@@ -101,4 +101,14 @@ interface RecipeDao {
 
     @Query("DELETE FROM steps WHERE idStep = :idStep")
     fun deleteStep(idStep: Long)
+
+    @Query(
+        """
+        UPDATE recipes SET
+        isFavorite = CASE WHEN isFavorite THEN 0 ELSE 1 END
+        WHERE id = :id;
+        """
+    )
+    fun getByRecipeId(id: Long)
+
 }

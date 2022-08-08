@@ -28,7 +28,7 @@ class FeedFragment : Fragment() {
                     or ItemTouchHelper.DOWN
                     or ItemTouchHelper.START
                     or ItemTouchHelper.END,
-            0
+0
         ) {
 
             override fun onMove(

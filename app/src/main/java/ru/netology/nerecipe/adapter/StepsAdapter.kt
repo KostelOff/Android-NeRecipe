@@ -1,6 +1,5 @@
 package ru.netology.nerecipe.adapter
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.PopupMenu
@@ -15,7 +14,7 @@ import ru.netology.nerecipe.databinding.CookingStepsBinding
 import ru.netology.nerecipe.recipe.Step
 
 
-internal class StepsAdapter(
+internal class  StepsAdapter(
     private val interactionListener: StepInteractionListener
 ) : ListAdapter<Step, StepsAdapter.ViewHolder>(DiffCallback) {
 

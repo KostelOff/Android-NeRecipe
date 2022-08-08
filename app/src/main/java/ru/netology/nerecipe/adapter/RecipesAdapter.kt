@@ -80,7 +80,7 @@ internal class RecipesAdapter(
     }
 
     fun getIndexFrom(from: Int): Long {
-        return currentList.toMutableList()[from].indexPosition
+        return currentList.toMutableList()[from].id
     }
 
     fun getIdFrom(from: Int): Long {
@@ -88,7 +88,7 @@ internal class RecipesAdapter(
     }
 
     fun getIndexTo(to: Int): Long {
-        return currentList.toMutableList()[to].indexPosition
+        return currentList.toMutableList()[to].id
     }
 
     fun getIdTo(to: Int): Long {

@@ -38,6 +38,3 @@ fun View.focusAndShowKeyboard() {
             })
     }
 }
-
-
-

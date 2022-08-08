@@ -8,7 +8,7 @@ interface RecipeRepository {
 
     val data: LiveData<List<Recipe>>
 
-    fun getNextIndexId(): Long
+    fun getNextIndexId(id: Long)
 
     fun addFavorite(recipeId: Long)
 
@@ -27,7 +27,7 @@ interface RecipeRepository {
     ): LiveData<List<Recipe>>
 
     companion object {
-        const val NEW_RECIPE_ID = 0L
+        var NEW_RECIPE_ID = 0L
         const val NEW_STEP_ID = 0L
     }
 }

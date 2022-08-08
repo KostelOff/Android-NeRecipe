@@ -1,8 +1,10 @@
 package ru.netology.nerecipe.data.impl
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import ru.netology.nerecipe.data.RecipeRepository
+import ru.netology.nerecipe.data.RecipeRepository.Companion.NEW_RECIPE_ID
 import ru.netology.nerecipe.db.RecipeDao
 import ru.netology.nerecipe.db.toEntity
 import ru.netology.nerecipe.db.toRecipe
@@ -10,17 +12,16 @@ import ru.netology.nerecipe.recipe.Recipe
 import ru.netology.nerecipe.recipe.Step
 
 class RecipeRepositoryImpl(
+
     private val dao: RecipeDao
 ) : RecipeRepository {
-
-    private var nextIndexId: Long = 1
 
     override val data = dao.getAll().map { entities ->
         entities.map { it.toRecipe() }
     }
 
-    override fun getNextIndexId(): Long {
-        return nextIndexId++
+    override fun getNextIndexId(id: Long) {
+        dao.getByRecipeId(id)
     }
 
     override fun addFavorite(recipeId: Long) {
@@ -32,7 +33,7 @@ class RecipeRepositoryImpl(
     }
 
     override fun save(recipe: Recipe) {
-        if (recipe.id == RecipeRepository.NEW_RECIPE_ID) dao.insert(recipe.toEntity())
+        if (recipe.id == NEW_RECIPE_ID) dao.insert(recipe.toEntity())
         else dao.update(recipe.id, recipe.author, recipe.title, recipe.category)
     }
 
