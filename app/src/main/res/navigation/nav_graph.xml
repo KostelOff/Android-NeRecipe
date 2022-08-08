@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="ru.netology.nerecipe.ui.FeedFragment"
+        android:label="feed_fragment"
+        tools:layout="@layout/feed_fragment" >
+        <action
+            android:id="@+id/toRecipeContentFragment"
+            app:destination="@id/recipeContentFragment" />
+        <action
+            android:id="@+id/toCurrentRecipeFragment"
+            app:destination="@id/currentRecipeFragment" />
+        <action
+            android:id="@+id/toFilterFragment"
+            app:destination="@id/filterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recipeContentFragment"
+        android:name="ru.netology.nerecipe.ui.RecipeContentFragment"
+        android:label="recipe_content_fragment"
+        tools:layout="@layout/recipe_content_fragment" >
+        <argument
+            android:name="initialContent"
+            app:argType="long" />
+        <argument
+            android:name="fromFragment"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/currentRecipeFragment"
+        android:name="ru.netology.nerecipe.ui.CurrentRecipeFragment"
+        android:label="current_recipe_fragment"
+        tools:layout="@layout/current_recipe_fragment" >
+        <action
+            android:id="@+id/currentRecipeFragmentToRecipeContentFragment"
+            app:destination="@id/recipeContentFragment" />
+        <argument
+            android:name="idCurrentRecipe"
+            app:argType="long" />
+        <action
+            android:id="@+id/currentRecipeFragmentToStepContentFragment"
+            app:destination="@id/stepContentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepContentFragment"
+        android:name="ru.netology.nerecipe.ui.StepContentFragment"
+        android:label="add_or_edit_step_fragment"
+        tools:layout="@layout/add_or_edit_step_fragment" >
+        <argument
+            android:name="initialStepText"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="ru.netology.nerecipe.ui.FavoriteFragment"
+        android:label="favorite_fragment"
+        tools:layout="@layout/favorite_fragment" >
+        <action
+            android:id="@+id/toCurrentRecipeFragment"
+            app:destination="@id/currentRecipeFragment" />
+        <action
+            android:id="@+id/toRecipeContentFragment"
+            app:destination="@id/recipeContentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="ru.netology.nerecipe.ui.FilterFragment"
+        android:label="filter_fragment"
+        tools:layout="@layout/filter_fragment" />
+
+</navigation>
