@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nerecipe.databinding.FilterBinding
 
-
 internal class FiltersAdapter(
     private val interactionListener: FilterInteractionListener
 ) : ListAdapter<String, FiltersAdapter.ViewHolder>(DiffCallback) {
@@ -56,6 +55,5 @@ internal class FiltersAdapter(
 
         override fun areContentsTheSame(oldItem: String, newItem: String) =
             oldItem == newItem
-
     }
 }

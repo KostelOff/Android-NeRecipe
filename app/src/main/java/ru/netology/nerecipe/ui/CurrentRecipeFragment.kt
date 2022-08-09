@@ -136,5 +136,4 @@ class CurrentRecipeFragment : Fragment() {
         category.text = recipe.category
         likeIcon.isChecked = recipe.isFavorite
     }
-
 }

@@ -15,7 +15,6 @@ class FilterFragment : Fragment() {
 
     private val viewModel: RecipeViewModel by activityViewModels()
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +27,6 @@ class FilterFragment : Fragment() {
 
         val adapterFilter = FiltersAdapter(viewModel)
         binding.filterRecycleView.adapter = adapterFilter
-
 
         adapterFilter.submitList(categoriesList)
 

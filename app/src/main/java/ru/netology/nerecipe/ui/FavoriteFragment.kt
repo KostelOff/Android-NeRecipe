@@ -53,9 +53,5 @@ class FavoriteFragment : Fragment() {
 
         binding.recipeRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.recipeRecyclerView.adapter = recyclerViewAdapter
-
-
     }.root
-
-
 }

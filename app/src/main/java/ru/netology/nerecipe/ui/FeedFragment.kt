@@ -28,7 +28,7 @@ class FeedFragment : Fragment() {
                     or ItemTouchHelper.DOWN
                     or ItemTouchHelper.START
                     or ItemTouchHelper.END,
-0
+            0
         ) {
 
             override fun onMove(
@@ -74,7 +74,6 @@ class FeedFragment : Fragment() {
         ItemTouchHelper(simpleItemTouchCallback)
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -91,9 +90,7 @@ class FeedFragment : Fragment() {
                 FeedFragmentDirections.toCurrentRecipeFragment(currentRecipe.id)
             findNavController().navigate(direction)
         }
-
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_filter_menu, menu)
@@ -158,5 +155,4 @@ class FeedFragment : Fragment() {
             viewModel.onAddClicked()
         }
     }.root
-
 }

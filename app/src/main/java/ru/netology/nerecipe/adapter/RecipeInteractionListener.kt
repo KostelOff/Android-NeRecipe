@@ -8,5 +8,4 @@ interface RecipeInteractionListener {
     fun onRemoveClicked(recipe: Recipe)
     fun onEditClicked(recipe: Recipe)
     fun onRecipeClicked(recipe: Recipe)
-
 }

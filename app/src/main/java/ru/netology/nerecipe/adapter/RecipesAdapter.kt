@@ -2,20 +2,17 @@ package ru.netology.nerecipe.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nerecipe.databinding.RecipeBinding
 import ru.netology.nerecipe.recipe.Recipe
-import java.util.*
 
 
 internal class RecipesAdapter(
     private val interactionListener: RecipeInteractionListener
 ) : ListAdapter<Recipe, RecipesAdapter.ViewHolder>(DiffCallback) {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -61,7 +58,6 @@ internal class RecipesAdapter(
 
         override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe) =
             oldItem.content == newItem.content
-
     }
 
 
@@ -76,7 +72,6 @@ internal class RecipesAdapter(
         } else {
             list.add(to - 1, fromLocation)
         }
-
     }
 
     fun getIndexFrom(from: Int): Long {
@@ -94,5 +89,4 @@ internal class RecipesAdapter(
     fun getIdTo(to: Int): Long {
         return currentList.toMutableList()[to].id
     }
-
 }

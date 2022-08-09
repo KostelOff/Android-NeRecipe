@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
 
-
 @Dao
 interface RecipeDao {
 
@@ -102,13 +101,6 @@ interface RecipeDao {
     @Query("DELETE FROM steps WHERE idStep = :idStep")
     fun deleteStep(idStep: Long)
 
-    @Query(
-        """
-        UPDATE recipes SET
-        isFavorite = CASE WHEN isFavorite THEN 0 ELSE 1 END
-        WHERE id = :id;
-        """
-    )
-    fun getByRecipeId(id: Long)
-
+    @Query("SELECT MAX(indexNumber) FROM recipes")
+    fun getMaxNumber(): Int
 }

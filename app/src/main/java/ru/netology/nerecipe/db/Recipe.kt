@@ -37,4 +37,3 @@ internal fun Step.toEntity() = StepEntity(
     stepText = stepText,
     picture = picture
 )
-

@@ -31,12 +31,13 @@ class RecipeViewModel(
     private val currentRecipe = MutableLiveData<Recipe?>(null)
     private val currentStep = MutableLiveData<Step?>(null)
 
-    val currentImageStep = MutableLiveData("")
+    val currentImageStep = MutableLiveData<String>("")
 
     private val filters = MutableLiveData<MutableSet<String>?>(mutableSetOf())
     var filterResult = Transformations.switchMap(filters) { filter ->
         repository.getFilteredList(filter)
     }
+
 
     val navigateToRecipeEditOrAddScreenEvent = SingleLiveEvent<Recipe>()
     val navigateToCurrentRecipeScreenEvent = SingleLiveEvent<Recipe>()
@@ -54,7 +55,7 @@ class RecipeViewModel(
             category = category,
             content = content,
             title = title,
-            indexPosition = RecipeRepository.NEW_RECIPE_ID
+            indexPosition = repository.getNextIndexId()
         )
         repository.save(recipeForSave)
         currentRecipe.value = null
@@ -95,7 +96,6 @@ class RecipeViewModel(
 
     fun filterRecipeByFavorite(recipes: List<Recipe>): List<Recipe> {
         return recipes.filter { it.isFavorite }
-
     }
 
     fun filterSearch(charForSearch: CharSequence?): MutableList<Recipe> {
@@ -170,5 +170,4 @@ class RecipeViewModel(
     }
 
     //endregion FilterInteractionListener
-
 }

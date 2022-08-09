@@ -106,5 +106,4 @@ class RecipeContentFragment : Fragment() {
         const val REQUEST_CURRENT_RECIPE_KEY = "requestForCurrentRecipeFragmentKey"
         const val REQUEST_FEED_FAVORITE_KEY = "requestForFeedFavoriteFragmentKey"
     }
-
 }

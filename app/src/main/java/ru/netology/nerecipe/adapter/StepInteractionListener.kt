@@ -7,5 +7,4 @@ interface StepInteractionListener {
     fun onRemoveStepClicked(step: Step)
 
     fun onEditStepClicked(step: Step)
-
 }

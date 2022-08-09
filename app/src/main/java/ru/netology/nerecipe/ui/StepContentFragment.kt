@@ -20,15 +20,16 @@ class StepContentFragment : Fragment() {
 
     private val viewModel: RecipeViewModel by activityViewModels()
 
-    private val contract = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
-        if (uri != null) {
-            requireActivity().contentResolver.takePersistableUriPermission(
-                uri,
-                Intent.FLAG_GRANT_READ_URI_PERMISSION
-            )
+    private val contract =
+        registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+            if (uri != null) {
+                requireActivity().contentResolver.takePersistableUriPermission(
+                    uri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION
+                )
+            }
+            viewModel.currentImageStep.value = uri.toString()
         }
-        viewModel.currentImageStep.value = uri.toString()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +44,7 @@ class StepContentFragment : Fragment() {
             onOkButtonClicked(binding)
         }
 
-        binding.addPicture.setOnClickListener{
+        binding.addPicture.setOnClickListener {
             contract.launch(arrayOf("image/*"))
         }
     }.root

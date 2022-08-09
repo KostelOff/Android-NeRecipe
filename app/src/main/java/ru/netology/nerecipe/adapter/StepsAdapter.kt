@@ -18,7 +18,6 @@ internal class  StepsAdapter(
     private val interactionListener: StepInteractionListener
 ) : ListAdapter<Step, StepsAdapter.ViewHolder>(DiffCallback) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = CookingStepsBinding.inflate(inflater, parent, false)
@@ -29,7 +28,6 @@ internal class  StepsAdapter(
         val stepItem = differ.currentList[position]
         holder.bind(stepItem)
     }
-
 
     inner class ViewHolder(
         private val binding: CookingStepsBinding,
@@ -87,7 +85,5 @@ internal class  StepsAdapter(
 
     }
 
-
     val differ = AsyncListDiffer(this, DiffCallback)
-
 }
